@@ -45,7 +45,7 @@ void *rp_xfader_tilde_new(void)
     x->x_in2 = inlet_new(&x->x_obj, &x->x_obj.ob_pd, &s_signal, &s_signal);
 
     x->x_out = outlet_new(&x->x_obj, &s_signal);
-    x->xFader = xfader_create(0.5);
+    x->xFader = xfader_create(0.5f);
 
     return (void *)x;
 }

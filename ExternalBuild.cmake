@@ -2,7 +2,7 @@ if(WIN32)
     set(PD_PATH "$ENV{ProgramFiles}/Pd")
     set(COMPILER_FLAG "/DPD_LONGINTTYPE=\"long long\" /wd4091 /wd4996 /wd4189")
 else(APPLE)
-    set(PD_PATH "${CMAKE_CURRENT_LIST_DIR}/../libpd/pure-data")
+    set(PD_PATH "/Applications/Pd-0.50-0.app/Contents/Resources")
 endif()
 
 function(add_external EXTERNAL_NAME)
