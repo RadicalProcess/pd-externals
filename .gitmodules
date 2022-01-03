@@ -1,3 +1,6 @@
 [submodule "dsp"]
 	path = dsp
 	url = https://github.com/RadicalProcess/dsp
+[submodule "curtis_core"]
+	path = curtis_core
+	url = https://github.com/RadicalProcess/curtis_core
