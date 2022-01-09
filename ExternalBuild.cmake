@@ -15,7 +15,8 @@ function(add_external EXTERNAL_NAME)
             $<$<CXX_COMPILER_ID:MSVC>:ws2_32.lib>
             $<$<CXX_COMPILER_ID:MSVC>:advapi32.lib>
             $<$<CXX_COMPILER_ID:MSVC>:userenv.lib>
-            DSP::DSP)
+            DSP::DSP
+            rp::CurtisCore)
     set_target_properties(${EXTERNAL_NAME} PROPERTIES
             LIBRARY_OUTPUT_DIRECTORY ${PD_OUTPUT_PATH}
             LIBRARY_OUTPUT_DIRECTORY_RELEASE ${PD_OUTPUT_PATH}
