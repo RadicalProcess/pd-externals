@@ -53,11 +53,6 @@ void rp_curtis_tilde_segment_min_length(t_rp_curtis_tilde *x, t_float length)
     curtis_segment_min_length(x->curtis_core, length);
 }
 
-void rp_curtis_tilde_segment_max_length(t_rp_curtis_tilde *x, t_float length)
-{
-    curtis_segment_max_length(x->curtis_core, length);
-}
-
 void rp_curtis_tilde_repeat_min(t_rp_curtis_tilde *x, t_float count)
 {
     curtis_repeat_min(x->curtis_core, (uintptr_t)count);
@@ -98,6 +93,11 @@ void rp_curtis_tilde_end_max_speed(t_rp_curtis_tilde *x, t_float speed)
     curtis_end_max_speed(x->curtis_core, speed);
 }
 
+void rp_curtis_tilde_density(t_rp_curtis_tilde *x, t_float density)
+{
+    curtis_density(x->curtis_core, density);
+}
+
 void rp_curtis_tilde_setup(void) {
     rp_curtis_tilde_class = class_new(gensym("rp_curtis~"),
                                         (t_newmethod)rp_curtis_tilde_new,
@@ -107,16 +107,15 @@ void rp_curtis_tilde_setup(void) {
     class_addmethod(rp_curtis_tilde_class, (t_method)rp_curtis_tilde_dsp, gensym("dsp"), A_CANT, 0);
 
     class_addmethod(rp_curtis_tilde_class, (t_method)rp_curtis_tilde_segment_min_length, gensym("segmin"), A_FLOAT, 0);
-    class_addmethod(rp_curtis_tilde_class, (t_method)rp_curtis_tilde_segment_max_length, gensym("segmax"), A_FLOAT, 0);
     class_addmethod(rp_curtis_tilde_class, (t_method)rp_curtis_tilde_repeat_min, gensym("repmin"), A_FLOAT, 0);
     class_addmethod(rp_curtis_tilde_class, (t_method)rp_curtis_tilde_repeat_max, gensym("repmax"), A_FLOAT, 0);
-
     class_addmethod(rp_curtis_tilde_class, (t_method)rp_curtis_tilde_random_range, gensym("random"), A_FLOAT, 0);
     class_addmethod(rp_curtis_tilde_class, (t_method)rp_curtis_tilde_glisson_enabled, gensym("glisson"), A_FLOAT, 0);
     class_addmethod(rp_curtis_tilde_class, (t_method)rp_curtis_tilde_start_min_speed, gensym("startmin"), A_FLOAT, 0);
     class_addmethod(rp_curtis_tilde_class, (t_method)rp_curtis_tilde_start_max_speed, gensym("startmax"), A_FLOAT, 0);
     class_addmethod(rp_curtis_tilde_class, (t_method)rp_curtis_tilde_end_min_speed, gensym("endmin"), A_FLOAT, 0);
     class_addmethod(rp_curtis_tilde_class, (t_method)rp_curtis_tilde_end_max_speed, gensym("endmax"), A_FLOAT, 0);
+    class_addmethod(rp_curtis_tilde_class, (t_method)rp_curtis_tilde_density, gensym("density"), A_FLOAT, 0);
 
     CLASS_MAINSIGNALIN(rp_curtis_tilde_class,t_rp_curtis_tilde, f);
 }
